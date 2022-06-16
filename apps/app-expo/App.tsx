@@ -8,7 +8,7 @@ import tailwindConfig from 'app/tailwind.config'
 import AetherContextManager from '../../packages/@aetherspace/context/AetherContextManager'
 // Screens
 import HomeScreen from 'app/screens/HomeScreen'
-import AuthorScreen from 'app/screens/AuthorScreen'
+import ProfileScreen from 'app/screens/ProfileScreen'
 // Assets
 import * as assets from 'app/assets.generated'
 // Hooks
@@ -35,10 +35,10 @@ const AppNavigator = () => {
           options={{ title: 'Home', headerShown: false }}
         />
         <Stack.Screen
-          name="author"
-          navigationKey="author"
-          component={AuthorScreen}
-          options={{ title: 'About the Author', headerShown: false }}
+          name="profile"
+          navigationKey="profile"
+          component={ProfileScreen}
+          options={{ title: 'User Profile', headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

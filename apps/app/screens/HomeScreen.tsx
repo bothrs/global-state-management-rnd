@@ -1,45 +1,61 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
+// Types
+import { UserType } from '../types/UserType'
 // Navigation
 import { AetherLink } from 'aetherspace/navigation'
 // Primitives
-import { AetherView, AetherText, AetherImage } from 'aetherspace/primitives'
+import { View, AetherImage, Pressable, Text } from 'aetherspace/primitives'
 // SEO
 import { H1 } from 'aetherspace/html-elements'
-// Hooks
-import { useDocAddress } from 'aetherspace/docs'
 
 /* --- <HomeScreen/> --------------------------------------------------------------------------- */
 
 const HomeScreen = () => {
-  // Hooks
-  const docsURI = useDocAddress()
+  // Leave user empty for now
+  const user = null as unknown as UserType
+
+  // -- Handlers --
+
+  const onSignIn = () => {
+    // TODO: Add login code
+    console.warn('Logging in')
+  }
+
+  const onSignOut = () => {
+    // TODO: Add login code
+    console.warn('Logging out')
+  }
 
   // -- Render --
 
   return (
-    <AetherView tw="flex-1 bg-white items-center justify-center">
-      <StatusBar style="auto" />
-      <AetherLink to="https://aetherspace-green-stack-starter.vercel.app/author">
-        <AetherImage
-          src="/img/icon.png"
-          tw={['w-20 h-20 mt-0 mb-3 overflow-hidden', true && 'rounded-full']} // Assign conditional classes with an array
-        />
+    <View tw="flex-1 bg-white items-center justify-center">
+      <AetherLink to={user ? '/profile' : '/'}>
+        <AetherImage src="/img/icon.png" tw="w-20 h-20 mt-0 mb-3 overflow-hidden rounded-full" />
       </AetherLink>
-      <H1 tw="text-green-500 pb-5 roboto-bold font-bold text-base">Hello GREEN stack ✅</H1>
-      <AetherText tw="px-5 text-center text-sm">
-        Open up <AetherText tw="text-gray-500">apps/app/screens/HomeScreen.tsx</AetherText> to start working on your app
-      </AetherText>
-      <AetherLink href="/author" tw="roboto-bold pt-5 text-center text-sm" asText>
-        Test Navigation
-      </AetherLink>
-      <AetherLink to={`${docsURI}?path=/story/readme-md--page`} tw="text-xs roboto-bold my-4 px-5">
-        {'Read the Docs'}
-      </AetherLink>
-      <AetherLink to="/author" tw="m-3">
-        {'{ ...💚 }'}
-      </AetherLink>
-    </AetherView>
+      <H1 tw="text-green-500 pb-5 roboto-bold font-bold text-base">
+        {user?.name ? `Hello ${user.name}` : 'Unknown user, log in to continue'}
+      </H1>
+      {user ? (
+        <>
+          <AetherLink href="/profile" tw="roboto-bold pt-5 text-center text-sm" asText>
+            View profile
+          </AetherLink>
+          <Pressable
+            accessibilityRole="button"
+            tw="flex-row py-2.5 px-5 mx-3 bg-black items-center"
+            onPress={onSignOut}
+          >
+            <Text tw="text-white font-bold">Sign Out</Text>
+          </Pressable>
+        </>
+      ) : (
+        <Pressable accessibilityRole="button" tw="flex-row py-2.5 px-5 mx-3 bg-black items-center" onPress={onSignIn}>
+          <Text tw="text-white font-bold">Sign In</Text>
+        </Pressable>
+      )}
+    </View>
   )
 }
 

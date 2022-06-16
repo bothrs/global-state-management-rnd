@@ -1,9 +1,9 @@
-import AuthorScreen from 'app/screens/AuthorScreen'
+import ProfileScreen from 'app/screens/ProfileScreen'
 
 /* --- <AuthorPage/> ----------------------------------------------------------------------------- */
 
 const AuthorPage = () => {
-  return <AuthorScreen />
+  return <ProfileScreen />
 }
 
 /* --- Exports --------------------------------------------------------------------------------- */

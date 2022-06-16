@@ -1,24 +1,26 @@
 import React from 'react'
+// Types
+import { UserType } from '../types/UserType'
 // Navigation
-import { AetherLink, useAetherNav } from 'aetherspace/navigation'
+import { useAetherNav } from 'aetherspace/navigation'
 // Primitives
 import { AetherView, AetherPressable, AetherText } from 'aetherspace/primitives'
 // Icons
 import { BackIcon, HomeIcon } from '../icons'
-import { useDocAddress } from 'aetherspace/docs'
 
-/* --- <AuthorScreen/> ------------------------------------------------------------------------- */
+/* --- <ProfileScreen/> ------------------------------------------------------------------------- */
 
-const AuthorScreen = () => {
+const ProfileScreen = () => {
+  // Leave user empty for now
+  const user = null as unknown as UserType
   // Hooks
-  const docsURI = useDocAddress()
   const { goBack, openLink } = useAetherNav()
   // Render
   return (
     <AetherView tw="flex-1 bg-white items-center justify-center">
       <AetherPressable tw="items-center" onPress={() => openLink('https://codinsonn.dev')}>
-        <AetherText>About the Author:</AetherText>
-        <AetherText tw="font-bold text-lg">thorr@codinsonn.dev</AetherText>
+        <AetherText>Contact Info:</AetherText>
+        <AetherText tw="font-bold text-lg">{user?.email}</AetherText>
       </AetherPressable>
       <AetherView tw="flex-row items-center content-center justify-center my-5">
         <AetherPressable tw="flex-row py-2.5 px-5 mx-3 bg-black items-center" onPress={goBack}>
@@ -30,13 +32,10 @@ const AuthorScreen = () => {
           <AetherText tw="text-white"> Home</AetherText>
         </AetherPressable>
       </AetherView>
-      <AetherLink to={`${docsURI}?path=/story/readme-md--page`} tw="text-xs roboto-bold py-2.5 px-5 mx-3 ">
-        {'Read the Docs'}
-      </AetherLink>
     </AetherView>
   )
 }
 
 /* --- Exports --------------------------------------------------------------------------------- */
 
-export default AuthorScreen
+export default ProfileScreen
