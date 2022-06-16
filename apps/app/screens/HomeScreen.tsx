@@ -1,5 +1,4 @@
 import React from 'react'
-import { StatusBar } from 'expo-status-bar'
 // Types
 import { UserType } from '../types/UserType'
 // Navigation
@@ -32,7 +31,7 @@ const HomeScreen = () => {
   return (
     <View tw="flex-1 bg-white items-center justify-center">
       <AetherLink to={user ? '/profile' : '/'}>
-        <AetherImage src="/img/icon.png" tw="w-20 h-20 mt-0 mb-3 overflow-hidden rounded-full" />
+        <AetherImage src={user?.image || '/img/icon.png'} tw="w-20 h-20 mt-0 mb-3 overflow-hidden rounded-full" />
       </AetherLink>
       <H1 tw="text-green-500 pb-5 roboto-bold font-bold text-base">
         {user?.name ? `Hello ${user.name}` : 'Unknown user, log in to continue'}

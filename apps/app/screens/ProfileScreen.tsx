@@ -8,7 +8,7 @@ import { AetherView, AetherPressable, AetherText } from 'aetherspace/primitives'
 // Icons
 import { BackIcon, HomeIcon } from '../icons'
 
-/* --- <ProfileScreen/> ------------------------------------------------------------------------- */
+/* --- <ProfileScreen/> ------------------------------------------------------------------------ */
 
 const ProfileScreen = () => {
   // Leave user empty for now
@@ -18,7 +18,7 @@ const ProfileScreen = () => {
   // Render
   return (
     <AetherView tw="flex-1 bg-white items-center justify-center">
-      <AetherPressable tw="items-center" onPress={() => openLink('https://codinsonn.dev')}>
+      <AetherPressable tw="items-center" onPress={() => openLink(user.website || '/profile')}>
         <AetherText>Contact Info:</AetherText>
         <AetherText tw="font-bold text-lg">{user?.email}</AetherText>
       </AetherPressable>

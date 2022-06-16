@@ -1,11 +1,11 @@
 import ProfileScreen from 'app/screens/ProfileScreen'
 
-/* --- <AuthorPage/> ----------------------------------------------------------------------------- */
+/* --- <ProfilePage/> -------------------------------------------------------------------------- */
 
-const AuthorPage = () => {
+const ProfilePage = () => {
   return <ProfileScreen />
 }
 
 /* --- Exports --------------------------------------------------------------------------------- */
 
-export default AuthorPage
+export default ProfilePage

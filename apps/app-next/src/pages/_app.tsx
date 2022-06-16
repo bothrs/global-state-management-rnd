@@ -25,7 +25,7 @@ setPublicEnvVars({
 const AppLayout = (props: AppProps) => {
   // Props
   const { Component, pageProps } = props
-  const { pageTitle = 'My GREEN stack App' } = pageProps
+  const { pageTitle = 'Bothrs R&D' } = pageProps
 
   // -- Fonts --
 
