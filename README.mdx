@@ -1,4 +1,51 @@
-# Move fast and Build things™️
+# [R&D] Global State Management @bothrs
+
+[[Chapter R&D] Notion Docs](https://www.notion.so/bothrs/Global-State-Recoil-vs-Context-edeb6b7be3de49899b09a211efb673e9)
+
+### Table of contents
+
+- [Global state management with **React Context**](#react-context)
+- [Global state management with **Recoil**](#recoil)
+
+### **What problem are we solving and why?**
+
+we don't know which one brings the best developer experience, with the must pragmatic approach (giving us flexibility in different code bases)
+
+### **What happens if we don't solve this problem**
+
+We don't have a default when starting projects, leaving it up to the moment, and risking the stack diverging
+
+## React Context <a name="react-context"></a>
+
+[Context Docs](https://reactjs.org/docs/context.html#when-to-use-context)
+
+- ✅ Official React API, not going anywhere in the future
+- ✅ No extra concepts to learn if already familiar with React
+- ✅ Actively maintained as part of React by Meta
+- ✅ Often used under the hood by other state management libraries
+- ✅ Automatically picked up out of the box by React Devtools
+- 🤔 Still needs to be paired with other official React hooks to turn it into a state manager
+- 🤔 Bare bones / “build your own solution” still leaves room for different interpretations
+- 🤔 Can cause issues during SSR where server & browser state get out of sync
+- 🤔 Context API can be slow at times, often requires memoization in large apps [Docs]
+- 👍 Performance issues might get solved with React's new `useSelectedContext` hook
+
+## Recoil <a name="recoil"></a>
+
+[Recoiljs.org](https://recoiljs.org/)
+
+- ✅ Straightforward DX, feels like using regular React state
+- ✅ Separating read-only & read-write APIs
+- ✅ Minimal overhead on top of normal hooks
+- ✅ Isolates global state into atoms to avoid unnecessary / unrelated re-renders
+- ✅ Promoted / maintained by (devs working for) Meta
+- ✅ 269,471 weekly downloads [NPM]
+- ✅ Actively maintained 👉 (bi-)weekly updates & releases [GitHub]
+- 🤔 Not an official API though, might fall out of flavour / tank in popularity eventually
+
+<br/>
+
+---
 
 <p>
   <a href="https://aetherspace-green-stack-starter.vercel.app/">
