@@ -2,6 +2,7 @@ import React from 'react'
 import { LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { RecoilRoot } from 'recoil'
 // Config
 import tailwindConfig from 'app/tailwind.config'
 // Context
@@ -56,7 +57,9 @@ const App = () => {
 
   return (
     <AetherContextManager assets={assets} icons={{}} twConfig={tailwindConfig}>
-      <AppNavigator />
+      <RecoilRoot>
+        <AppNavigator />
+      </RecoilRoot>
     </AetherContextManager>
   )
 }
