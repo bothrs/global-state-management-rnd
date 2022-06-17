@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import tailwindConfig from 'app/tailwind.config'
 // Context
 import AetherContextManager from '../../packages/@aetherspace/context/AetherContextManager'
+import { UserContextManager } from 'app/context/UserContextManager'
 // Screens
 import HomeScreen from 'app/screens/HomeScreen'
 import ProfileScreen from 'app/screens/ProfileScreen'
@@ -56,7 +57,9 @@ const App = () => {
 
   return (
     <AetherContextManager assets={assets} icons={{}} twConfig={tailwindConfig}>
-      <AppNavigator />
+      <UserContextManager>
+        <AppNavigator />
+      </UserContextManager>
     </AetherContextManager>
   )
 }
