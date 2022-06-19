@@ -1,7 +1,6 @@
 import React from 'react'
-import { useRecoilState } from 'recoil'
 // State
-import { userState } from '../atoms/userState'
+import { useUserState } from '../atoms/userState'
 // Navigation
 import { useAetherNav } from 'aetherspace/navigation'
 // Primitives
@@ -13,7 +12,7 @@ import { BackIcon, HomeIcon } from '../icons'
 
 const ProfileScreen = () => {
   // Leave user empty for now
-  const [user] = useRecoilState(userState)
+  const [user] = useUserState()
   // Hooks
   const { goBack, openLink } = useAetherNav()
   // Render

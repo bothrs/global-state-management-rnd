@@ -22,6 +22,7 @@
     "@expo-google-fonts/roboto": "^0.2.2",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
+    "@react-native-async-storage/async-storage": "^1.16.1",
     "app": "*",
     "expo": "^45.0.0",
     "expo-linking": "~3.1.0",
