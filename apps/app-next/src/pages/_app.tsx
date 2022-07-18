@@ -1,6 +1,7 @@
 import 'setimmediate'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
+import { RecoilRoot } from 'recoil'
 // Config
 import tailwindConfig from 'app/tailwind.config'
 // Context
@@ -46,7 +47,9 @@ const AppLayout = (props: AppProps) => {
         />
       </Head>
       <AetherContextManager assets={{}} icons={{}} twConfig={tailwindConfig} isNextJS>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </AetherContextManager>
     </>
   )

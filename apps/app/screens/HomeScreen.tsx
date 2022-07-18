@@ -1,6 +1,6 @@
 import React from 'react'
-// Types
-import { UserType } from '../types/UserType'
+// State
+import { useUserState } from '../atoms/userState'
 // Navigation
 import { AetherLink } from 'aetherspace/navigation'
 // Primitives
@@ -12,18 +12,23 @@ import { H1 } from 'aetherspace/html-elements'
 
 const HomeScreen = () => {
   // Leave user empty for now
-  const user = null as unknown as UserType
+  const [user, setUser] = useUserState()
 
   // -- Handlers --
 
   const onSignIn = () => {
-    // TODO: Add login code
-    console.warn('Logging in')
+    // Sign In
+    setUser({
+      name: 'Thorr',
+      email: 'thorr@codinsonn.dev',
+      image: 'https://codinsonn.dev/_next/image?url=%2Fassets%2FCodelyFansLogoPic160x160.jpeg&w=3840&q=75',
+      website: 'https://codinsonn.dev',
+    })
   }
 
   const onSignOut = () => {
-    // TODO: Add login code
-    console.warn('Logging out')
+    // Sign Out
+    setUser(null)
   }
 
   // -- Render --
@@ -43,7 +48,7 @@ const HomeScreen = () => {
           </AetherLink>
           <Pressable
             accessibilityRole="button"
-            tw="flex-row py-2.5 px-5 mx-3 bg-black items-center"
+            tw="flex-row py-2.5 px-5 mx-3 mt-3 bg-black items-center"
             onPress={onSignOut}
           >
             <Text tw="text-white font-bold">Sign Out</Text>
