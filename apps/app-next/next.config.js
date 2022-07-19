@@ -27,6 +27,9 @@ const config = withPlugins(
             // scope: '/app',
             // sw: 'service-worker.js',
         },
+        images: {
+            domains: ['codinsonn.dev'],
+        },
     },
 );
 

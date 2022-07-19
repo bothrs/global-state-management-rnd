@@ -5,6 +5,7 @@ import { AppProps } from 'next/app'
 import tailwindConfig from 'app/tailwind.config'
 // Context
 import { AetherContextManager } from 'aetherspace/context'
+import { UserContextManager } from 'app/context/UserContextManager'
 // Hooks
 import useLoadFonts from 'app/hooks/useLoadFonts'
 // Utils
@@ -46,7 +47,9 @@ const AppLayout = (props: AppProps) => {
         />
       </Head>
       <AetherContextManager assets={{}} icons={{}} twConfig={tailwindConfig} isNextJS>
-        <Component {...pageProps} />
+        <UserContextManager>
+          <Component {...pageProps} />
+        </UserContextManager>
       </AetherContextManager>
     </>
   )

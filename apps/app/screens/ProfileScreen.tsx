@@ -1,6 +1,8 @@
 import React from 'react'
 // Types
 import { UserType } from '../types/UserType'
+// Context
+import { useUserContext } from '../context/UserContextManager'
 // Navigation
 import { useAetherNav } from 'aetherspace/navigation'
 // Primitives
@@ -11,14 +13,14 @@ import { BackIcon, HomeIcon } from '../icons'
 /* --- <ProfileScreen/> ------------------------------------------------------------------------ */
 
 const ProfileScreen = () => {
-  // Leave user empty for now
-  const user = null as unknown as UserType
+  // Context
+  const { user } = useUserContext()
   // Hooks
   const { goBack, openLink } = useAetherNav()
   // Render
   return (
     <AetherView tw="flex-1 bg-white items-center justify-center">
-      <AetherPressable tw="items-center" onPress={() => openLink(user.website || '/profile')}>
+      <AetherPressable tw="items-center" onPress={() => openLink(user?.website || '/profile')}>
         <AetherText>Contact Info:</AetherText>
         <AetherText tw="font-bold text-lg">{user?.email}</AetherText>
       </AetherPressable>
